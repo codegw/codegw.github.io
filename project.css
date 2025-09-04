@@ -770,7 +770,6 @@ video {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto;
         gap: 1rem;
-        padding: 1.5rem;
     }
 
     .stage-discovery,
@@ -814,7 +813,7 @@ video {
         transform: translateX(-60px);
     }
     
-    .mini-phone { width: 170px; height: 320px; }
+    .mini-phone { width: 170px; height: 350px; }
     
     .mini-phone:nth-child(2) {
         display: none;
