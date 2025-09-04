@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SortLoop · Gabriel Williams</title>
+        <meta property="og:title" content="SortLoop · Gabriel Williams" />
+        <meta property="og:image" content="assets/preview.png"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://gabrielw.dev/projects/sortloop">
+        <meta property="og:site_name" content="Gabriel Williams" />
+        <meta name="og:description" content="SortLoop empowers users to scan everyday items, instantly learn recyclability, and seamlessly schedule pickups, making eco-friendly choices effortless.">
+        <meta name="description" content="SortLoop empowers users to scan everyday items, instantly learn recyclability, and seamlessly schedule pickups, making eco-friendly choices effortless.">
+
+        <link rel="stylesheet" href="../../shared.css">
+        <link rel="stylesheet" href="../../project.css">
+        <script src="../../projectscript.js"></script>
+    </head>
+
+    <body>
+        <main>
+            <a href="../../index.html" aria-label="Back to Projects homepage" class="back-button fade-in">Back</a>
+            
+            <section class="project-hero">
+                <h1 class="fade-in">SortLoop</h1>
+                
+                <div class="project-meta fade-in">
+                    <div class="meta-item">
+                        <span class="meta-label">Event</span>
+                        <span class="meta-value">WWDC Swift Student Challenge</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Platform</span>
+                        <span class="meta-value">iOS, SwiftUI</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Tools</span>
+                        <span class="meta-value">Xcode, Swift Playgrounds, Sketch, Pixelmator Pro, Apple Intelligence</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Timeline</span>
+                        <span class="meta-value">1 month</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Year</span>
+                        <span class="meta-value">2025</span>
+                    </div>
+                </div>
+                
+                <div class="project-description fade-in">
+                    <p>SortLoop empowers users to scan everyday items, instantly learn recyclability, and seamlessly schedule pickups, making eco-friendly choices effortless.</p>
+                </div>
+
+                <div class="project-description fade-in">
+                    <p>Swift Student Challenge Winner & Project</p>
+                </div>
+                
+            </section>
+
+            <div class="phones-container fade-in">
+                <div class="phone phone-left">
+                    <div class="phone-screen">
+                        <img src="assets/materials.png" width="500" height="985" alt="List of recyclable materials by category">
+                    </div>
+                </div>
+                <div class="phone phone-center">
+                    <div class="phone-screen">
+                        <img src="assets/scan.png" width="500" height="985" alt="Camera view detecting a plastic bottle as recyclable">
+                    </div>
+                </div>
+                <div class="phone phone-right">
+                    <div class="phone-screen">
+                        <img src="assets/schedules.png" width="500" height="985" alt="Recycling schedules sorted by pickup date">
+                    </div>
+                </div>
+            </div>
+
+            <section class="content-layout fade-in">
+                <div class="section-sidebar" role="navigation" aria-label="Section Navigation">
+                    <h2>Definition</h2>
+                    <div class="current-subtitle" id="background-subtitle">Understanding the problem space</div>
+                    <ul class="section-nav" aria-label="Section Links">
+                        <li><a href="#problems" data-subtitle="Understanding the problem space">Problems</a></li>
+                        <li><a href="#ideation" data-subtitle="Creating a solution">Ideation</a></li>
+                        <li><a href="#goals" data-subtitle="Defining success metrics">Goals</a></li>
+                        <li><a href="#constraints" data-subtitle="Working within limitations">Constraints</a></li>
+                    </ul>
+                </div>
+                
+                <div class="section-content-main">
+                    <div class="section-intro">
+                        SortLoop was created to make sustainable living easier by helping users quickly identify and understand materials around them.
+                        I built this app during my time at university as part of the Swift Student Challenge, to encourage everyday sustainable choices. 
+                    </div>
+
+                    <div class="content-section-item" id="problems">
+                        <div class="section-header-with-image">
+                            <h3>Problems</h3>
+                        </div>
+                        <p>The main problem I aimed to address was the widespread confusion and inconsistency surrounding recycling information, which creates significant barriers to effective waste management. After observing many students at my university facing confusion about which trash bin to use for their items, I decided to develop a solution to inspire positive change and make recycling more accessible. </p>
+                        <p>Recycling is further complicated by the complexity of material types and packaging combinations, as well as limited public understanding of recycling symbols and procedures. Many people want to recycle correctly but lack convenient and understandable resources that provide clear, actionable information at the moment of decision making, which contributes to reduced recycling rates and increased environmental impact. Existing solutions also require internet connectivity, making them unusable in areas with poor signal or for users wanting offline access. </p>
+                        
+                    </div>
+
+                    <div class="content-section-item" id="ideation">
+                        <div class="section-header-with-image">
+                            <h3>Ideation</h3>
+                        </div>
+                        <p>After identifying recycling confusion as a persistent issue in my university community, I began exploring how a Swift Playground could make the process less confusing and more engaging. </p>
+                        <p>
+                            The key question that shaped the project was: <em>“What if an iPhone camera could instantly tell me how to recycle this?”</em> 
+                            This led me to focus on an image classification approach, using a machine learning model with SwiftUI to create a playful, approachable learning experience.
+                        </p>
+                        <p>Because the Swift Student Challenge requires projects to run entirely on-device, I decided to create a lightweight ML model, using Create ML, and a local material dataset to show further detail about detected objects. </p>
+                    </div>
+                    
+                    <div class="content-section-item" id="goals">
+                        <div class="section-header-with-image">
+                            <h3>Goals</h3>
+                        </div>
+                        <p>The main goal of the app is to simplify recycling and help users confidently understand how to dispose of everyday materials, with a focus on making a positive impact on recycling behavior and environmental awareness.</p>
+                        <ul>
+                            <li>Encourage long term sustainable habits through education and reminders</li>
+                            <li>Empower users with clear recycling information</li>
+                            <li>Ensure users never forget their recycling schedules</li>
+                            <li>Demonstrate advanced iOS development through custom ML integration</li>
+                            <li>Make recycling guidance available even when packaging lacks clear information</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section-item" id="constraints">
+                        <div class="section-header-with-image">
+                            <h3>Constraints</h3>
+                        </div>
+                        <p>SortLoop was developed alongside full-time university study, which influenced design and technical trade-offs, prioritising a compact, on-device solution, that delivered reliable user feedback within minimal resources.</p>
+                        <ul>
+                            <li>Limited development timeline of 1 month</li>
+                            <li>Creating an ML model that performed well, with a low memory requirement</li>
+                            <li>Capturing hundreds of images for a variety of different products</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-layout fade-in">
+                <div class="section-sidebar" role="navigation" aria-label="Section Navigation">
+                    <h2>Research</h2>
+                    <div class="current-subtitle" id="research-subtitle">Gathering user insights</div>
+                    <ul class="section-nav" aria-label="Section Links">
+                        <li><a href="#painpoints" data-subtitle="Identifying key pain points">Pain Points</a></li>
+                        <li><a href="#personas" data-subtitle="Creating user archetypes">Personas</a></li>
+                        <li><a href="#userjourney" data-subtitle="Developing a persona">User Journey</a></li>
+                    </ul>
+                </div>
+                
+                <div class="section-content-main">
+                    <div class="section-intro">
+                        After I had begun my thought process of building the app, I decided to identify some of the existing issues with recycling schemes and systems, which provided valuable insights into how to improve them through technology.
+                    </div>
+                    
+                    <div class="content-section-item" id="painpoints">
+                        <div class="section-header-with-image">
+                            <h3>Pain Points</h3>
+                        </div>
+                        <p>I identified four key pain points that users have when dealing with recyclability and waste management.</p>
+                        <ul>
+                            <li>Lack of Clear Guidance
+                                <ul>
+                                    <li>Many everyday items have packaging that is either poorly labeled or overly complex. Users are often left unsure about whether something is recyclable or how to prepare it for disposal.
+                                </ul>
+                            </li>
+                            <li>Poor Discoverability of Information
+                                <ul>
+                                    <li>When users want to learn more about sustainability or materials, they often have to search across multiple sources, such as articles and websites, making it difficult to stay informed.
+                                </ul>
+                            </li>
+                            <li>Low Engagement With Sustainable Habits
+                                <ul>
+                                    <li>Recycling often feels like a chore or an afterthought, rather than a habit people actively enjoy or engage with. 
+                                </ul>
+                            </li>
+                            <li>Overwhelming Terminology
+                                <ul>
+                                    <li>Consumers frequently encounter a range of recycling symbols, acronyms (like PET, LDPE), and vague language such as "widely recycled". These terms are often poorly understood and lack actionable context.
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section-item" id="personas">
+                        <div class="section-header-with-image">
+                            <h3>Persona</h3>
+                        </div>
+                        <p>To better understand the needs and behaviors of users interacting with SortLoop, I developed a primary persona based on key motivations and real world recycling challenges. This persona reflects the common traits and pain points of the app’s target audience, which will help me for design and feature decisions.</p>
+                        
+                        <div class="persona-bento">
+                            <div class="persona-profile-image">
+                                <img src="assets/Sophie.png" width="125" height="125" alt="Persona illustration of Sophie">
+                            </div>
+                            
+                            <div class="persona-info-grid">
+                                <div class="persona-info-item">
+                                    <h4>Age</h4>
+                                    <p>22</p>
+                                </div>
+                                <div class="persona-info-item">
+                                    <h4>Location</h4>
+                                    <p>London, UK</p>
+                                </div>
+                                <div class="persona-info-item">
+                                    <h4>Occupation</h4>
+                                    <p>Business Management Student</p>
+                                </div>
+                                <div class="persona-info-item">
+                                    <h4>Tech Level</h4>
+                                    <p>Proficient</p>
+                                </div>
+                                <div class="persona-info-item">
+                                    <h4>Values</h4>
+                                    <p>Sustainability, Accessibility, Accurate Information</p>
+                                </div>
+                                <div class="persona-info-item">
+                                    <h4>Personality</h4>
+                                    <p>Eco-Conscious, Time Aware, Socially Responsible</p>
+                                </div>
+                            </div>
+                            
+                            <div class="persona-large-section persona-background">
+                                <h4>Background</h4>
+                                <p>Sophie is a business student who cares about environmental responsibility and wants to make sustainable choices in her daily life. She grew up in a household that recycled, but moving to university revealed how much products are disposed of and how confusing packaging can be. She's motivated to do the right thing but often feels frustrated by unclear information and inconsistent guidance across different sources.</p>
+                            </div>
+                            
+                            <div class="persona-large-section persona-goals">
+                                <h4>Goals</h4>
+                                <ul>
+                                    <li>Understand how to recycle or dispose of materials properly and locally</li>
+                                    <li>Discover eco-friendly alternatives to everyday items</li>
+                                    <li>Learn interesting facts to share with friends and promote sustainability</li>
+                                    <li>Stay organised with her personal recycling and trash days</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="persona-large-section persona-pain-points">
+                                <h4>Pain Points</h4>
+                                <ul>
+                                    <li>Finds packaging labels vague or inconsistent</li>
+                                    <li>Gets frustrated with conflicting information online</li>
+                                    <li>Can’t easily sort materials by category or learn what alternatives exists</li>
+                                    <li>Often forgets her recycling schedule, leading to a pileup</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="persona-large-section persona-app-needs">
+                                <h4>App Needs</h4>
+                                <ul>
+                                    <li>Clear, friendly explanations of materials and symbols</li>
+                                    <li>A schedule to track trash days or personal goals</li>
+                                    <li>Fun facts and learning moments to stay engaged</li>
+                                    <li>Save materials she wants to revisit or share</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p>While Sophie represents the primary environmentally conscious user, informal conversations during development revealed two additional user types that influenced design decisions.</p>
+                        <ul>
+                            <li>The 'Overwhelmed Beginner' wants to recycle correctly but feels intimidated by complex environmental terminology and conflicting advice, these users need confidence building through clear and simple guidance.</li>
+                            <li>The 'Efficiency-Focused Organiser’ already understands recycling basics but struggles with time management and staying organised with multiple waste streams and collection schedules.</li>
+                        </ul>
+                        <p>Sophie's profile encompasses core needs from all of these types, such as the beginner's need for clarity, the organisers need for scheduling tools, and the environmentally conscious user's desire for detailed information.</p>
+                    </div>
+
+                    <div class="content-section-item" id="userjourney">
+                        <div class="section-header-with-image">
+                            <h3>User Journey</h3>
+                        </div>
+                        <p>I developed a user journey based on the singular persona, to imagine how SortLoop could create an impact on both the user, and then subsequently on the environment, helping people to improve their sustainability and knowledge.</p>
+                        <div class="journey-bento">
+                            <div class="journey-stage stage-discovery">
+                                <div class="stage-header">
+                                    <div class="stage-number discovery">1</div>
+                                    <h3 class="stage-title">Discovery</h3>
+                                    <p class="stage-subtitle">First Encounter</p>
+                                </div>
+                                
+                                <div class="stage-content">
+                                    <p class="stage-description">Sophie downloads the app after struggling to understand if her plastic bottle is recyclable, since it doesn't show recycling information</p>
+                                    
+                                    <div class="stage-actions">
+                                        <h4>Actions</h4>
+                                        <ul>
+                                            <li>Downloads app from recommendation</li>
+                                            <li>Scans first item, a plastic bottle</li>
+                                            <li>Once recognised, she learns about details and recyclability</li>
+                                            <li>Explores basic navigation</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="stage-emotions curiosity">
+                                    <div class="emotion-label">Emotion</div>
+                                    <p class="emotion-text">"Finally! Something that might actually help me understand all these symbols."</p>
+                                </div>
+                            </div>
+
+                            <div class="journey-stage stage-exploration">
+                                <div class="stage-header">
+                                    <div class="stage-number exploration">2</div>
+                                    <h3 class="stage-title">Exploration</h3>
+                                    <p class="stage-subtitle">Exploring Further</p>
+                                </div>
+                                
+                                <div class="stage-content">
+                                    <p class="stage-description">Sophie experiments with different features, scans various items around her flat, and starts learning about proper disposal methods.</p>
+                                    
+                                    <div class="stage-actions">
+                                        <h4>Actions</h4>
+                                        <ul>
+                                            <li>Scans multiple items</li>
+                                            <li>Uses scan outside and inside</li>
+                                            <li>Reads recycling procedures and material impacts</li>
+                                            <li>Discovers different materials</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="stage-emotions satisfaction">
+                                    <div class="emotion-label">Emotion</div>
+                                    <p class="emotion-text">"This is actually useful! I had no idea I was recycling some things incorrectly."</p>
+                                </div>
+                            </div>
+
+                            <div class="journey-stage stage-engagement">
+                                <div class="stage-header">
+                                    <div class="stage-number engagement">3</div>
+                                    <h3 class="stage-title">Engagement</h3>
+                                    <p class="stage-subtitle">Building Habits</p>
+                                </div>
+                                
+                                <div class="stage-content">
+                                    <p class="stage-description">Sophie integrates the app into her daily routine, sets up trash day reminders and starts saving interesting facts to share with friends.</p>
+                                    
+                                    <div class="stage-actions">
+                                        <h4>Actions</h4>
+                                        <ul>
+                                            <li>Creates a recycling schedule</li>
+                                            <li>Sets up trash day notifications to never forget</li>
+                                            <li>Bookmarks materials for reference</li>
+                                            <li>Shares her recycling schedules with flatmates </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="stage-emotions confidence">
+                                    <div class="emotion-label">Emotion</div>
+                                    <p class="emotion-text">"I'm becoming the go to person for sustainability advice in my friend group!"</p>
+                                </div>
+                            </div>
+
+                            <div class="journey-stage stage-mastery">
+                                <div class="stage-header">
+                                    <div class="stage-number mastery">4</div>
+                                    <h3 class="stage-title">Future</h3>
+                                    <p class="stage-subtitle">Confident User</p>
+                                </div>
+                                
+                                <div class="stage-content">
+                                    <p class="stage-description">Sophie has developed strong sustainable habits and uses the app as a trusted reference tool. She now advocates for sustainability in her community.</p>
+                                    
+                                    <div class="stage-actions">
+                                        <h4>Actions</h4>
+                                        <ul>
+                                            <li>Uses the app as a recycling companion everyday</li>
+                                            <li>Maintains consistent sustainable routines</li>
+                                            <li>Recommends app to friends and family</li>
+                                            <li>Shares sustainability tips online</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="stage-emotions confidence">
+                                    <div class="emotion-label">Emotion</div>
+                                    <p class="emotion-text">"I feel confident about my environmental impact and love making better choices!"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> 
+
+            <section class="content-layout fade-in">
+                <div class="section-sidebar" role="navigation" aria-label="Section Navigation">
+                    <h2>Design & Build</h2>
+                    <div class="current-subtitle" id="design-subtitle">Creating the solution</div>
+                    <ul class="section-nav" aria-label="Section Links">
+                        <li><a href="#lowlevel" data-subtitle="Creating ideas">Low Fidelity Prototypes</a></li>
+                        <li><a href="#midlevel" data-subtitle="Building a structure">Mid Fidelity Prototypes</a></li>
+                        <li><a href="#highlevel" data-subtitle="Finalising design">High Fidelity Prototypes</a></li>
+                        <li><a href="#developing" data-subtitle="Building the app">Development</a></li>
+                        <li><a href="#submission" data-subtitle="Submitting the playground">Submission</a></li>
+                    </ul>
+                </div>
+                
+                <div class="section-content-main">
+                    <div class="section-intro">
+                        Based on my research and findings, I began to design my app using my ideas, following an iterative process, starting with wireframes and then refining those ideas through mid and high fidelity prototypes, before exploring development. 
+                    </div>
+
+                    <div class="content-section-item" id="lowlevel">
+                        <div class="section-header-with-image">
+                            <h3>Low Fidelity Prototype</h3>
+                        </div>
+                        <p>I started with some low fidelity designs within Sketch, for both navigation and user flows, to explore how the apps structure would appear using grayscale components and basic UI elements. This helped me focus on layout and hierarchy and allowed me to progress faster through the iteration process. </p>
+                        
+                        <div class="section-bottom-image">
+                            <img loading="lazy" src="assets/FirstIteration/LowFidelity.png" width="1200" height="730" alt="Low fidelity wireframe layouts of app screens">
+                        </div>
+                    </div>
+
+                    <div class="content-section-item" id="midlevel">
+                        <div class="section-header-with-image">
+                            <h3>Mid Fidelity Prototype</h3>
+                        </div>
+                        <p>With a clearer idea of the app’s structure, I created a mid fidelity prototype with additional layout improvements and colour. This version helped test navigation and functionality, and gave me a better sense of how users would move through the app. </p>
+                        
+                        <div class="section-bottom-image">
+                            <img loading="lazy" src="assets/FirstIteration/MidFidelity.png" width="1200" height="730" alt="Mid fidelity prototypes with added structure and colour">
+                        </div>
+                    </div>
+                    
+                    <div class="content-section-item" id="highlevel">
+                        <div class="section-header-with-image">
+                            <h3>High Fidelity Prototype</h3>
+                        </div>
+                        <p>I then developed a high fidelity prototype, applying further colours, typography, icons and interactive elements to simulate the final look and feel of the app. This stage allowed me to further refine the interface and ensure visual consistency.</p>
+                        
+                        <div class="section-bottom-image">
+                            <img loading="lazy" src="assets/FirstIteration/HighFidelity.png" width="1200" height="730" alt="High fidelity mockups showing final app design">
+                        </div>
+                    </div>
+
+                    <div class="content-section-item" id="developing">
+                        <div class="section-header-with-image">
+                            <h3>Development</h3>
+                        </div>
+                        <p>Once the final design was in place, I transitioned to development using Swift and SwiftUI. I initially built core features in Swift Playgrounds, which gave me a space to experiment with views and interactions. After validating key components, I moved into Xcode to build the full playground experience, specifically for the machine learning model. </p>
+                        
+                        <p>Developing the machine learning model was one of the most technically challenging aspects, as items vary greatly in form, so I curated a dataset that represented common household packaging, including plastic bottles, drinks cans, and cartons. </p>
+                        <p>Using Create ML, I trained an <code>.mlmodel</code> image classifier with various different types of packaging to increase accuracy. The trained model was integrated through the Vision framework (<code>VNCoreMLRequest</code>, <code>VNImageRequestHandler</code>), with a 90% confidence threshold to ensure that detected objects weren't mistaken for others. </p>
+
+                        <div class="section-bottom-image">
+                            <img loading="lazy" src="assets/developmentML.png" width="1200" height="730" alt="Xcode with ML model code and UI preview">
+                        </div>
+
+                        <p>Alongside the ML model, I created a structured local dataset of recycling guidance, with information gathered from Wikipedia, then encoded as Swift structs, which allowed the Playground to provide offline educational content and map scan results to clear, user-friendly explanations.</p>
+
+                        <div class="section-bottom-image">
+                            <img loading="lazy" src="assets/developmentdataset.png" width="1200" height="730" alt="Xcode with dataset structures and materials list">
+                        </div>
+
+                    </div>
+
+                    <div class="content-section-item" id="submission">
+                        <div class="section-header-with-image">
+                            <h3>Submission</h3>
+                        </div>
+                        <p>
+                            The final Playground version of SortLoop focused on the core elements of sustainability by identifying objects and their recyclability, creating a space to learn more about materials, and staying organised with local recycling schedules.
+                        </p>
+                        <ul>
+                            <li>Fully implemented three key experiences: Materials, Scan, and Schedules.</li>
+                            <li>Integrated a custom-trained Create ML model that accurately recognised common household packaging in real time.</li>
+                            <li>Designed a minimal, friendly SwiftUI interface.</li>
+                            <li>Ensured offline availability of core recycling guidance for moments when packaging lacked clear information.</li>
+                            <li>Completed testing to refine navigation and scanning accuracy before submission.</li>
+                        </ul>
+                        <div class="section-bottom-image">
+                            <img loading="lazy" src="assets/InitialDesign.png" width="1200" height="730" alt="Screens showing material categories and object detection">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-layout fade-in">
+                <div class="section-sidebar" role="navigation" aria-label="Section Navigation">
+                    <h2>Results & Outcome</h2>
+                    <div class="current-subtitle" id="results-subtitle">Receiving the results</div>
+                    <ul class="section-nav" aria-label="Section Links">
+                        <li><a href="#results" data-subtitle="Receiving the results">Results</a></li>
+                        <li><a href="#outcomes" data-subtitle="Learning from the experience">Outcomes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="section-content-main">
+                    <div class="section-intro">
+                        After fully developing SortLoop, I submitted it for entry in the 2025 Swift Student Challenge
+                    </div>
+
+                    <div class="content-section-item" id="results">
+                        <div class="section-header-with-image">
+                            <h3>Results</h3>
+                        </div>
+                        <p>I was incredibly honored to be selected as one of this year’s Swift Student Challenge winners. Being recognised by Apple for something I dedicated so much time and care to has been an unforgettable experience. I’m grateful for the opportunity to share my work alongside such inspiring developers from around the world.</p>
+                        
+                        <div class="section-bottom-image">
+                            <img loading="lazy" src="assets/SSC2025.jpg" width="1200" height="730" alt="Swift Student Challenge winner badge with confetti">
+                        </div>
+                    </div>
+                    
+                    <div class="content-section-item" id="outcomes">
+                        <div class="section-header-with-image">
+                            <h3>Outcomes</h3>
+                        </div>
+                        <p>Key outcomes from this project:</p>
+                        <ul>
+                            <li>Improved time management skills through working with external deadlines</li>
+                            <li>CoreML model training and optimisation techniques</li>
+                            <li>Real-time camera processing in SwiftUI</li>
+                            <li>Learned to validate technical decisions without team feedback</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-layout fade-in">
+                <div class="section-sidebar" role="navigation" aria-label="Section Navigation">
+                    <h2>Iteration</h2>
+                    <div class="current-subtitle" id="redesign-subtitle">Creating a new look</div>
+                    <ul class="section-nav" aria-label="Section Links">
+                        <li><a href="#redesign" data-subtitle="Creating a new look">Redesign</a></li>
+                        <li><a href="#prototype" data-subtitle="Focusing on new ideas">Prototype</a></li>
+                        <li><a href="#photography" data-subtitle="Minimal pictures for articles">Photography</a></li>
+                        <li><a href="#accessibility" data-subtitle="Making recycling accessible">Accessibility</a></li>
+                    </ul>
+                </div>
+                
+                <div class="section-content-main">
+                    <div class="section-intro">
+                        After my first year university semester and studies had ended, I decided to further work on the app, improving it's ML model, design and creating a new name.
+                    </div>
+
+                    <div class="content-section-item" id="redesign">
+                        <div class="section-header-with-image">
+                            <h3>Redesign</h3>
+                        </div>
+                        <p>With the new redesign, I decided to primarily focus on forefronting the scan capability, and make it easy to access other key features, like product search and waste scheduling. I also aimed to implement some new features that make SortLoop have better personalisation.</p>
+                        <ul>
+                            <li>Region based information</li>
+                            <li>Informative articles</li>
+                            <li>Improved navigation structure and new design</li>
+                            <li>Improvements to accessibility</li>
+                        </ul>
+                        <p>My initial ideas focused on improving the navigation structure by removing tabs and replacing them with a simplified page design, or placing greater emphasis on material categories by providing detailed information about specific types such as Plastics or Metals. I ultimately chose a single-sheet design for its simplicity and its focus on scanning as the app’s main feature, while still allowing key features like Schedules, Materials, and Articles to remain easily accessible.</p>
+                        <div class="section-bottom-image">
+                            <img loading="lazy" src="assets/SecondIteration/LowFidelity.png" width="1200" height="730" alt="Low fidelity wireframes of the app, with different initial designs and ideas">
+                        </div>
+                        <p>My mid fidelity designs focus on the sheet style further, maintaining it's position at the bottom of the screen and encapsulating the scanned items recyclability status within a new floating bar. The Explore sheet encompasses the same features as before, including Bookmarks, Schedules and a list of Materials, whilst also including Articles, with a compact navigation style.</p>
+                        <div class="section-bottom-image">
+                            <img loading="lazy" src="assets/SecondIteration/MidFidelity.png" width="1200" height="730" alt="Mid fidelity prototypes, with a specific focus on one design system and additional detail">
+                        </div>
+                        <p>Building on the mid fidelity designs, the high fidelity prototype brought the app's visual identity to life. I refined the bottom sheet UI with clear visual hierarchy and system consistent design patterns to align with iOS standards. The recyclability status bar was styled to be more visually distinct and easily scannable, using colour and iconography to quickly convey information.</p>
+                        <p>I used a consistent colour palette, rounded components, and typographic hierarchy to improve readability and maintain a friendly, accessible tone across the app. This stage helped validate how the app would feel in real use, and feedback from peers and testing with different devices helped refine layout spacing and button sizes to improve usability across contexts.</p>
+                        <div class="section-bottom-image">
+                            <img loading="lazy" src="assets/SecondIteration/HighFidelity.png" width="1200" height="730" alt="High fidelity prototypes, with added colour, textual information and improved layout">
+                        </div>
+                        <p>The redesign addressed three key issues identified during initial testing: </p>
+                        <ul>
+                            <li>Tab navigation created cognitive load when users wanted to quickly scan items.</li>
+                            <li>Scattered information architecture made learning about materials feel disconnected from scanning.</li>
+                            <li>Users expressed wanting 'everything in one place' during informal feedback sessions.</li>
+                        </ul>
+                        <p>The single-sheet design solved these by making scanning the primary action while keeping supporting features contextually accessible. </p>
+                    </div>
+
+                    <div class="content-section-item" id="prototype">
+                        <div class="section-header-with-image">
+                            <h3>Prototyping</h3>
+                        </div>
+                        <p>Exploring animation and motion was central to the redesign, as I aimed to make SortLoop feel more intuitive and natural to use.</p>
+                        <p>For instance, the Recyclability Status Bar started as a more compact iteration of my original concept, designed to move fluidly and respond organically to scanned items. The status bar briefly pauses to highlight the recyclability, then gently expands to reveal the suggested item before shrinking back once the item moves out of view.</p>
+                        <video autoplay loop muted playsinline width="490" aria-label="Animation showing the recyclability status bar expanding and collapsing, providing feedback on scanned items">
+                            <source src="assets/StatusBar.mp4" type="video/mp4">
+                        </video>
+                        <p>Simple elements like collapsible lists and informational panels use a subtle scale effect combined with a gentle bounce to introduce a playful, engaging tone, to make recycling information feel more approachable.</p>
+                        <video autoplay loop muted playsinline width="490" aria-label="Animation showing collapsible list expanding with a playful bounce and fade in">
+                            <source src="assets/ListAnimation.mp4" type="video/mp4">
+                        </video>
+                        
+                    </div>
+
+                    <div class="content-section-item" id="photography">
+                        <div class="section-header-with-image">
+                            <h3>Photography</h3>
+                        </div>
+                        <p>For the article sections, I decided to use my photographic skills to create imagery for the articles within the app. All photography was shot on iPhone, using natural lighting and simple setups to achieve a clean, minimalist aesthetic, so the images remained both functional and visually cohesive with SortLoop’s overall design language. </p>
+                        <div class="section-bottom-image">
+                            <img loading="lazy" src="assets/photography.png" width="1200" height="730" alt="Four images within a grid; leaf foliage, plastic bottle, corrugated plastic and clouds in blue sky">
+                        </div>
+                    </div>
+
+                    <div class="content-section-item" id="accessibility">
+                        <div class="section-header-with-image">
+                            <h3>Accessibility</h3>
+                        </div>
+                        <p>Supporting user choice and comfort was a core part of the new design, ensuring the app could be enjoyed by as many people as possible.</p>
+                        <p>The font customisation feature allows users to switch to OpenDyslexic, a typeface designed to improve readability for those with dyslexia, especially when the app specifically focuses on textual information. </p>
+                        
+                        <p>Sound and haptic feedback controls were added for similar reasons, users can independently toggle both features to suit their preferences or environment, such as within a quiet library or sensitivity to haptic feedback.</p>
+
+                        <div class="section-bottom-image">
+                            <img loading="lazy" src="assets/FontChange.png" width="1200" height="730" alt="SortLoop settings screen showing accessibility toggle for dyslexia-friendly font">
+                        </div>
+
+                        <p>Additionally, I enhanced VoiceOver support with clear, concise labels and hints for interactive elements like buttons, collapsible lists, and status indicators, so users can easily understand app functionality without seeing the screen. Dynamic content updates, such as recyclability results after scanning, are announced in real time to keep users informed without needing to guess or explore manually. </p>
+                        
+                        <div class="section-bottom-image">
+                            <div class="mini-phones-row">
+                                <div class="mini-phone">
+                                    <img loading="lazy" src="assets/explore.png" width="500" height="985" alt="Screen showing explore sheet, with VoiceOver box highlighted on article">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="content-layout fade-in">
+                <div class="section-sidebar" role="navigation" aria-label="Section Navigation">
+                    <h2>Final Product</h2>
+                    <div class="current-subtitle" id="design-subtitle">A focused new design</div>
+                    <ul class="section-nav" aria-label="Section Links">
+                        <li><a href="#design" data-subtitle="A focused new design">Design</a></li>
+                        <li><a href="#scan" data-subtitle="Identify objects easily">Scan</a></li>
+                        <li><a href="#materials" data-subtitle="Discover further details">Materials</a></li>
+                        <li><a href="#schedules" data-subtitle="Never miss a trash day">Schedules</a></li>
+                        <li><a href="#articles" data-subtitle="Learn new things">Articles</a></li>
+                        <li><a href="#additional" data-subtitle="Additional features">Additional Elements</a></li>
+                        <li><a href="#reflection" data-subtitle="Looking back at the project">Reflection</a></li>
+                    </ul>
+                    
+                </div>
+                
+                <div class="section-content-main">
+                    <div class="section-intro">
+                        The new iteration of SortLoop brings the app into a streamlined, single-sheet design, making key features like scanning, schedules, materials, and articles easily accessible
+                    </div>
+
+                    <div class="content-section-item" id="design">
+                        <div class="section-header-with-image">
+                            <h3>Design</h3>
+                        </div>
+                        <p>
+                            The redesign of SortLoop focused on unifying previously separate views into a singular sheet-based layout, 
+                            improving navigation efficiency and information hierarchy. Additionally, the visual language evolved to make recycling guidance more approachable and engaging, with the use of colour and symbols to quickly communicate status and categories without relying solely on text.
+                        </p>
+                        <div class="section-bottom-image">
+                            <img loading="lazy" src="assets/design.png" width="1200" height="730" alt="Grid of redesigned UI components for SortLoop">
+                        </div>
+                    </div>
+
+
+                    <div class="content-section-item" id="scan">
+                        <div class="section-header-with-image">
+                            <h3>Scan</h3>
+                        </div>
+                        <p>
+                            Object scanning underwent extensive refinement, focusing on the underlying machine learning model and the user-facing recognition process. 
+                            The redesigned model maintains efficient performance with 8.99ms average prediction time and a compact 7.7MB size, with an expanded dataset of 8,000+ training images. The scanning interface was also redesigned to present recyclability feedback with clear, adaptive visual cues.
+                        </p>
+                        <ul>
+                            <li>Enlarged training dataset for broader object coverage and improved classification accuracy.</li>
+                            <li>Maintained minimal model size to preserve on-device performance and offline capability.</li>
+                            <li>Redesigned recyclability status bar for fluid state transitions between object types.</li>
+                        </ul>
+                        
+                        <div class="section-bottom-image">
+                            <div class="mini-phones-row">
+                                <div class="mini-phone">
+                                    <img loading="lazy" src="assets/scan.png" width="500" height="985" alt="Camera detecting a plastic bottle as recyclable">
+                                </div>
+                                <div class="mini-phone">
+                                    <img loading="lazy" src="assets/scancan.png" width="500" height="985" alt="Camera detecting a metal can as recyclable">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section-item" id="materials">
+                        <div class="section-header-with-image">
+                            <h3>Materials</h3>
+                        </div>
+                        
+                        <p>
+                            Materials was restructured to improve discoverability and depth of information, and search capabilities were expanded to recognise more object and recycling symbols, while material detail pages adopted a modular layout for clearer presentation of guidance and alternatives.
+                        </p>
+
+                        <ul>
+                            <li>Streamlined categorisation to reduce navigation friction.</li>
+                            <li>Extended search to recognise object names, related terms, and recycling symbols.</li>
+                            <li>Redesigned detail view to present recycling guidance, examples, and alternatives in a structured format.</li>
+                        </ul>
+                        
+                        <div class="section-bottom-image">
+                            <div class="mini-phones-row">
+                                <div class="mini-phone">
+                                    <img loading="lazy" src="assets/materials.png" width="500" height="985" alt="List of recyclable materials grouped by type">
+                                </div>
+                                <div class="mini-phone">
+                                    <img loading="lazy" src="assets/materialdetail.png" width="500" height="985" alt="Yard waste material with recyclability details">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section-item" id="schedules">
+                        <div class="section-header-with-image">
+                            <h3>Schedules</h3>
+                        </div>
+                        <p>
+                            Schedules was redesigned to make tracking and managing recycling routines more customisable, with a range of symbols, colours, repeat intervals, and reminders for fully customisable recycling routines.
+                        </p>
+                        <ul>
+                            <li>Expanded visual system with additional icons, colours, and accessibility-friendly components.</li>
+                            <li>Added advanced recurrence and reminder configurations for varied recycling patterns.</li>
+                        </ul>
+                        
+                        <div class="section-bottom-image">
+                            <div class="mini-phones-row">
+                                <div class="mini-phone">
+                                    <img loading="lazy" src="assets/schedules.png" width="500" height="985" alt="List of recycling schedules with dates">
+                                </div>
+                                <div class="mini-phone">
+                                    <img loading="lazy" src="assets/addschedule.png" width="500" height="985" alt="Creating a new recycling schedule with options">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="content-section-item" id="articles">
+                        <div class="section-header-with-image">
+                            <h3>Articles</h3>
+                        </div>
+                        <p>
+                            Articles was introduced to provide accessible and concise information on recycling practices and sustainability tips, making SortLoop feel more like a resource that encourages better environmental habits.
+                        </p>
+                        <ul>
+                            <li>Curated short form articles covering guides, recycling, and tips.</li>
+                            <li>Integrated custom minimal photography to match the article theme.</li>
+                            <li>Designed articles to be accessible through screen readers and other assistive technologies.</li>
+                        </ul>
+                        
+                        <div class="section-bottom-image">
+                            <div class="mini-phones-row">
+                                <div class="mini-phone">
+                                    <img loading="lazy" src="assets/articles.png" width="500" height="985" alt="List of sustainability and recycling articles">
+                                </div>
+                                <div class="mini-phone">
+                                    <img loading="lazy" src="assets/article.png" width="500" height="985" alt="Article detail view about greener alternatives">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="content-section-item" id="additional">
+                        <div class="section-header-with-image">
+                            <h3>Additional Elements</h3>
+                        </div>
+                        <p></p>
+                        <ul>
+                            <li>Improved accessibility with the integrated OpenDyslexic font, control over sound effects and haptics, and support for VoiceOver and reduced motion.</li>
+                            <li>Adjustable region settings for better suggestions and important details, like information about plastic bottle deposits.</li>
+                        </ul>
+                        
+                        <div class="section-bottom-image">
+                            <div class="mini-phones-row">
+                                <div class="mini-phone">
+                                    <img loading="lazy" src="assets/accessibilityarticle.png" width="500" height="985" alt="Article displayed with OpenDyslexic font">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section-item" id="reflection">
+                        <div class="section-header-with-image">
+                            <h3>Reflection</h3>
+                        </div>
+                        
+                        <p>
+                            SortLoop was an ambitious project that pushed my skills in SwiftUI, machine learning, and product design further than any project I had created before. Balancing complex technical requirements with my university commitments meant working within tight timeframes, which taught me how to prioritise features and iterate quickly without losing sight of the core vision. 
+                        </p>
+
+                        <p>Throughout the project, I also encountered some challenges that shaped my decision making:</p>
+
+                        <ul>
+                            <li>ML Scope and Accuracy
+                                <ul>
+                                    <li>Designing a compact, on-device classifier involved trade-offs between the number of supported object types, model size, and inference speed.</li>
+                                    <li>External APIs could have expanded detection capabilities but this would require internet connectivity and introduce latency.</li>
+                                </ul>
+                            </li>
+                            <li>Data Maintenance
+                                <ul>
+                                    <li>Keeping a dataset current with new packaging and region-specific changes would require ongoing collection and validation.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <p>These decisions made me ultimately decide against a public launch at this stage, however the process of creating the app was one of the most valuable experiences as a developer. I learned how to optimise and refine a machine learning model with thousands of training images whilst improving its accuracy compared to the original version, in addition to a redesign for efficiency, whilst making recycling information more interactive and encouraging.</p>
+                        <p>I explored the role of motion and animation in creating a smooth and engaging experience, which helped my ability to present complex information in a clear approachable way. The project also deepened my understanding of accessibility, especially with implementing VoiceOver-friendly layouts and customisation options like dyslexia friendly font. </p>
+
+                        <p>The journey of creating SortLoop made me improve my design and development skills, but also helped me earn recognition as a Swift Student Challenge winner, which is an experience that inspires me to take on even more ambitious challenges ahead.</p>
+
+                        <p><em>This project was created for the Swift Student Challenge and is not publicly distributed. Please contact me if you’d like to learn more or see a private demo.</em></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-nav">
+                    <p>Gabriel Williams</p>
+                    <p class="footer-subtitle">&copy; 2025</p>
+                    
+                </div>
+                <div class="social-links">
+                    <a href="mailto:hello@gabrielw.dev">Email</a>
+                    <a href="https://github.com/codegw">GitHub</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,272 @@
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+main {
+    margin-top: 0;
+}
+
+.project-meta {
+    display: row;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.hero {
+    padding: 4rem 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-content .subtitle {
+    font-size: 1.2rem;
+    color: var(--subtitle);
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 0 2rem;
+    line-height: 1.6;
+}
+
+.status-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #16a34a;
+    margin-bottom: 0;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    animation: breathe 2s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+}
+
+.bio-section {
+    padding: 6rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.bio-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--subtitle);
+    font-weight: 300;
+}
+
+.bio-content p {
+    margin-bottom: 1.5rem;
+}
+
+.bio-content p:last-child {
+    margin-bottom: 0;
+}
+
+.featured-work {
+    padding: 0rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: left;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--text-color);
+    letter-spacing: -0.02em;
+    margin-bottom: 4rem;
+}
+
+.section-header h4 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-color);
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+}
+
+.date-range {
+    color: var(--subtitle);
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+}
+
+.work-item {
+    background: var(--work-bg);
+    border-radius: 25px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.work-item:hover {
+    transform: translateY(-8px);
+    background: var(--work-bg);
+    border-color: rgba(0, 0, 0, 0.12);
+    box-shadow: 0 20px 40px var(--work-shadow);
+}
+
+.work-image {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px 16px 0 0;
+    background: var(--work-bg);
+}
+
+.work-image img,
+.work-image video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.work-info {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.work-info h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.work-info p {
+    color: var(--subtitle);
+    font-size: 0.95rem;
+    font-weight: 300;
+    flex-grow: 1;
+}
+
+@media (max-width: 1024px) {
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .status-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .hero {
+        padding: 3rem 2rem 3rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .bio-section {
+        padding: 3rem 2rem;
+    }
+    
+    .featured-work {
+        padding: 4rem 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-section {
+        padding: 6rem 2rem;
+    }
+    
+    .contact-content h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-in,
+    .slide-in-left,
+    .slide-in-right,
+    .scale-in {
+        transition: none;
+    }
+    .status-dot {
+        animation: none;
+    }
+}
