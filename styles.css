@@ -167,7 +167,7 @@ main {
 
 .work-image {
     width: 100%;
-    height: 350px;
+    aspect-ratio: 16/9;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -181,7 +181,8 @@ main {
 .work-image video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     position: absolute;
     top: 0;
     left: 0;
