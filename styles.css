@@ -75,6 +75,27 @@ main {
     animation: breathe 2s ease-in-out infinite;
 }
 
+.contact-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--text-color);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 0;
+
+    transition: color 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-badge:hover {
+    color: var(--bg-color);
+    background-color: var(--text-color);
+    border-color: var(--subtitle-accent);
+}
+
 @keyframes breathe {
     0%, 100% {
         opacity: 1;
